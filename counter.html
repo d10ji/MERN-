@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h1>Counter</h1>
+    
+<b>Enter count in sec:  </b>
+ <input id="input" type="number" name="count">
+ <button onclick="myFunction()">Click me</button>
+
+<div id="displaying">
+<p id="p" style="background-color: rgb(159, 227, 196);
+                align-self:center;
+                display: inline-flex;
+                align-items: center;
+                justify-self: center;
+                justify-content: center;
+                font-size: 50px;
+                
+                height: 70px;
+                width: 130px;"> </p>
+</div>
+
+</centre>
+
+</body>
+<script>
+function myFunction() {
+    var count = document.getElementById('input').value;
+    console.log(count);
+    
+function displayTime(){
+    document.getElementById('input').value=null;
+                                        //     // Create an "li" node:
+                                        // const node = document.createElement("p");
+
+                                        // // Create a text node:
+                                        // const textnode = document.createTextNode(count);
+
+                                        // // Append the text node to the "li" node:
+                                        // node.appendChild(textnode);
+                                        // node.id="p";
+                                        // // Append the "li" node to the list:
+                                        // document.getElementById("displaying").appendChild(node);
+
+    document.getElementById('p').innerHTML=count;
+
+
+    if (count == 0){
+    clearInterval(id_1);
+    }   
+    count--;
+}
+let id_1 = setInterval(displayTime,1000)
+
+  
+}
+</script>
+</html>
