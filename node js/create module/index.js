@@ -16,3 +16,5 @@ console.log(circle.calculateArea(2));
 // (function print(str){
 //     console.log(str)
 // }) ("hello")
+
+
