@@ -97,3 +97,8 @@ const obj_person1 = new Const_person('dddd','213123','jiri');  // now greet meth
 // so when Const_person constructor in used greet function is also made for each object of constructor. 
 
 console.log(obj_person1);
+
+
+// ============================ coverting object to JSON ==============
+
+const json_1 = JSON.stringify(obj_person1);
