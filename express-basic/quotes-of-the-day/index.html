@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<head>
+    <title>
+        API operations
+    </title>
+</head>
+<body>
+    <h1 style="text-align:center ; color:black;">Welcome to </h1>
+    <h1 style="text-align:center ; color: brown;">Quotes of the day: </h1>
+    
+    <div class="">
+        <h3 style="text-align:center ; color:black;" id="quote"></h3>
+        <h4 style="text-align:right ; color:blueviolet;" id="author"></h4>
+
+    </div>
+<script>
+//    const data =  fetch('http://127.0.0.1:8000/api') //built in funcition to fetch URL
+//    console.log(data); // returns promis but we need data
+
+//   ------------------------------handling promise ---------------------------->
+// dot method. ---------------->
+
+    // fetch('http://127.0.0.1:8000/api').then((res)=> {
+    //     console.log(res);  //when promise sucessfully fetch then will execute 
+    //     // -----------------------------------------------------------
+    //    // res.json() // filtering only json form res (res return only promise)
+    //     // but res.json also return promise --> whole response inculding data
+        
+    //     res.json().then((data)=>{
+    //         console.log(data);    // actual data from whole response
+    //         document.getElementById("quote").innerHTML = data.quote;
+    //         document.getElementById("author").innerHTML = `-- by ${data.author}`;
+    //     }).catch((error)=>{
+    //         console.log(error);
+    //     }); 
+ 
+    // }).catch((err)=>{
+    //     console.log(err); // when promise is failed the execute catch.
+    // });
+
+
+// ----------------------<async>--<await> methode ---------------------------------->
+// using function ------------->
+
+async function fetchData(){
+    try{
+        const res = await fetch('http://127.0.0.1:8000/api');
+        const data = await res.json();
+        if(data.author == 'Unknown'){
+            throw error("this is invalid author.");
+            document.getElementById("quote").innerHTML = `quotes unavailable -- Unknown author`;
+        }
+        document.getElementById("quote").innerHTML = `"${data.quote}"`;
+        document.getElementById("author").innerHTML = `-- by ${data.author}`;
+    } catch(err){
+        console.log(err);
+
+    }
+} //end of async
+
+fetchData();
+    
+</script>
+</body>
