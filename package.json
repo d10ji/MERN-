@@ -1,0 +1,22 @@
+{
+  "name": "mern",
+  "version": "1.0.0",
+  "description": "",
+  "main": "ECMA.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/d10ji/MERN-.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/d10ji/MERN-/issues"
+  },
+  "homepage": "https://github.com/d10ji/MERN-#readme",
+  "dependencies": {
+    "hbs": "^4.2.0"
+  }
+}

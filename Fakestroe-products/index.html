@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+</html>
+<head>
+    <title>
+        API operations
+    </title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <style>
+    
+.cards{
+margin: 0 auto;
+max-width: 1000px;
+display: grid;
+grid-template-columns: repeat(auto-fill, minmax(225px,1fr));
+gap: 20px;
+font-family: sans-serif;
+}
+.card {
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+  max-width: 400px;
+  max-height: 500px;
+  margin: auto;
+  text-align: center;
+  font-family: arial;
+}
+
+.price {
+  color: grey;
+  font-size: 18px;
+}
+
+.card button:hover {
+  opacity: 0.7;
+}
+.center {
+  text-align: center;
+  border: 4px solid green;
+
+}
+</style>
+</head>
+<body>
+   
+    <h1 class="center" style="font-family: Georgia; font-size: 50px;">Welcome to Fake Store</h1>
+<br>
+<br>
+
+<div  class="cards" id="container">
+
+</div>
+    
+</body>
+
+<script>
+const container = document.querySelector('#container');
+
+async function fetchData(){
+  const setHeader={
+    headers: {
+      Accept:"application/JSON"
+    }
+  }
+    try{
+        const res = await fetch('https://fakestoreapi.com/products', setHeader);
+        const raw = await res.json();
+        // console.log(typeof(raw))
+        // const data = JSON.stringify(raw)
+       console.log(raw)
+    // ----------------------------------------------------
+raw.forEach(element => {
+const htmlData = `
+<div class="card">
+
+  <img src="${element.image}" alt="Denim Jeans" style=" width:50%">
+  <h3>${element.title}</h3>
+  <p class="price">$${element.price}</p>
+  <p><b>rating: </b> ${element.rating.rate}</p>
+  
+</div>
+`;
+    
+container.insertAdjacentHTML("afterbegin",htmlData);    
+});
+
+
+
+    } catch(err){
+        console.log(err);
+
+    }
+} //end of async
+fetchData();
+</script>
+</html>
