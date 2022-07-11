@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Book-detailpage | Ebookstore</title>
+    <link rel="stylesheet" href="/static/style.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?
+      family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;1,100;1,200;1,300;1,400;1,500;1,600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+  </head>
+
+  <body>
+    <!------------------ Header ------------------>
+
+{{>header}}
+
+
+    <!-- ----------single product details------------- -->
+    <div class="small-container single-product">
+      <div class="row">
+        <div class="col-2">
+          <img src="{{singlebook.thumbnailUrl}}" alt="Book4" width="68%" />
+        </div>
+        <div class="col-2">
+          <h1>{{singlebook.title}}</h1>
+          <h4>Rs. {{singlebook.pageCount}}</h4>
+            <h3>pageCount: {{singlebook.pageCount}}</h3>
+            <br>
+            <h3>isbn: {{singlebook.isbn}}</h3>
+
+        </div>
+        <div>
+             <h3>Book Deatails <i class="fa fa-indent"></i></h3>
+          <br />
+          <p>
+       {{singlebook.longDescription }}
+          </p>
+        </div>
+      </div>
+    </div>
+
+    
+  <!-- ---------------------footer------------------- -->
+{{>footer}}
+
+
+    <!-- ---------Javascript for toggle menu------------- -->
+    <script>
+ 
+    </script>
+  </body>
+</html>
