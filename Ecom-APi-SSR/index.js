@@ -3,9 +3,11 @@ const cors = require('cors');
 const procductAPIRoutes = require('./routes/productapi.js')
 const products = require('./data.json');
 const hbs = require('hbs');
-
-
 const app = express();
+const connectDatabase = require('./database/connection');
+
+//connect Databse
+connectDatabase();
 
 app.use("/static",express.static(__dirname+'/public'));
 //it return index.html (default)
@@ -58,6 +60,7 @@ app.get('/', [loggger1,loggger2],(req,res)=> res.render('index',{products}) )
 // -----------------------
 
 app.use('/api/products',procductAPIRoutes);
+
 
 
 app.listen(5005,()=>{

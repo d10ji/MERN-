@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const router = express.Router();
 const fs = require('fs');
-const { getOneProdutct, getAllProduct } = require('../controllers/products');
+const { getOneProdutct, getAllProduct,createProduct } = require('../controllers/products');
 
 
 
@@ -26,17 +26,18 @@ router.get('/:p_id',getOneProdutct);
   
 // / => /api/products
 
-router.post('/',(req,res)=>{
-    console.log(req.body);
-    fs.appendFile('./data.json',JSON.stringify(req.body), (err)=>{
-        if (err){
-            console.log("error occured");
-            console.log(err);
-        }
-    })
-    res.send("Data ayo hai") 
- });
- 
+// router.post('/',(req,res)=>{
+//     console.log(req.body);
+//     fs.appendFile('./data.json',JSON.stringify(req.body), (err)=>{
+//         if (err){
+//             console.log("error occured");
+//             console.log(err);
+//         }
+//     })
+//     res.send("Data ayo hai") 
+//  });
+
+router.post('/', createProduct);
 
 module.exports=router;
 

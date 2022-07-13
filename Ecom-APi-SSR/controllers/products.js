@@ -1,4 +1,18 @@
+// .....> Databse (connection ) ------> models (Prodcuct) (CapitalName) --------> controllers (product)
+
+
 const products = require('../data.json');
+const ProductModel = require('../models/product')
+
+const createProduct = async (req, res) =>{
+    try{
+        let product = new ProductModel(req.body);
+        await product.save();
+        res.json({product});
+    } catch(err){
+        req.send("Error Occured ");
+    }
+}
 
 
 const getAllProduct = (req,res)=>{
@@ -28,4 +42,4 @@ const getOneProdutct = (req,res)=>{
     res.json(selectedProduct);
 }
 
-module.exports={getOneProdutct,getAllProduct}
+module.exports={getOneProdutct,getAllProduct,createProduct}
