@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Books Lover | Ebookstore</title>
+    <link rel="stylesheet" href="/static/style.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?
+      family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;1,100;1,200;1,300;1,400;1,500;1,600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+  </head>
+
+  <body>
+    <!------------------ Header ------------------>
+{{>header}}
+
+    <!----------------featured Books -------------------->
+   
+<section class="products">
+
+
+ <div class="small-container">
+      <h2 class="title">Book PRESENT</h2>
+      <div class="row">
+      {{#each books_data}}
+        <div class="col-4">
+          <a href="http://localhost:3333/books/{{id}}">
+            <img src="{{this.thumbnailUrl}}" alt="{{title}}"
+          /></a>
+          <a href="http://localhost:3333/books/{{id}}"> <h4>{{this.title}}</h4></a>
+          <div class="rating">
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star-o"></i>
+          </div>
+          <p> <b>Authors : </b> {{authors}}</p>
+          <p><b>publishedDate: </b> {{publishedDate.$date }} </p>
+        </div>
+
+        {{/each}}
+  </div>
+  </div>
+  </section>
+    <!-- ---------------------footer------------------- -->
+    
+{{>footer}}
+
+
+    <!-- ---------Javascript for toggle menu------------- -->
+    <script>
+     
+
+
+    </script>
+  </body>
+</html>
