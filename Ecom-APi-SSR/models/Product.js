@@ -12,9 +12,11 @@ const ratingSchema = new mongoose.Schema({
 })
 
 const productSchema = new mongoose.Schema({
+    id :Number,
     title : String,
     price : Number,
     description : String,
+    category:String,
     image : String,
     // rating : {
     //     rate : Number, 

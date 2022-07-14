@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const router = express.Router();
 const fs = require('fs');
-const { getOneProdutct, getAllProduct,createProduct } = require('../controllers/products');
+const { getOneProdutct, getAllProduct,createProduct, updateProduct, deleteProduct, repalceProduct } = require('../controllers/products');
 
 
 
@@ -20,9 +20,15 @@ const { getOneProdutct, getAllProduct,createProduct } = require('../controllers/
 // routs parameter
 // ------------------------------------------------------------------>
 
+router.post('/', createProduct);
+
 router.get('/',getAllProduct);
 router.get('/:p_id',getOneProdutct);
 
+router.put("/:p_id",repalceProduct);
+
+router.delete('/:p_id',deleteProduct);
+router.patch('/:p_id',updateProduct);
   
 // / => /api/products
 
@@ -37,7 +43,6 @@ router.get('/:p_id',getOneProdutct);
 //     res.send("Data ayo hai") 
 //  });
 
-router.post('/', createProduct);
 
 module.exports=router;
 
